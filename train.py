@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     # _X = train_df.drop(["rent", "area_locality", "posted_on"], axis=1)
     # y = np.log1p(train_df["rent"])
-    _X = train_df.drop(["datetime"], axis=1)
+    _X = train_df.drop(["datetime", "count"], axis=1)
     y = train_df["count"]
 
     # X=_X, y=y로 전처리 파이프라인을 적용해 X에 저장
@@ -51,16 +51,16 @@ if __name__ == "__main__":
     logger.debug("Save the feature data...")
 
     params_candidates = {
-        "learning_rate": [0.01, 0.05, 0.1],
-        "max_depth": [3, 4, 5, 6],
-        "max_features": [1.0, 0.9, 0.8, 0.7],
+        "learning_rate": [0.01],
+        "max_depth": [3, 4],
+        "max_features": [1.0, 0.9],
     }
 
     param_set = get_param_set(params=params_candidates)
 
     # Set experiment name for mlflow
     logger.debug("Set an experiment for mlflow...")
-    experiment_name = "new_experiment_with_log"
+    experiment_name = "new_experiment"
     mlflow.set_experiment(experiment_name=experiment_name)
     mlflow.set_tracking_uri("./mlruns")
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
             regr = GradientBoostingRegressor(**params)
             # 전처리 이후 모델 순서로 파이프라인 작성
             pipeline = Pipeline(
-                # TODO: 전처리 파이프라인와 모델을 파이프라인으로 묶을 것
+                # 전처리 파이프라인와 모델을 파이프라인으로 묶을 것
                 [("preprocessor", preprocess_pipeline), ("regr", regr)]
             )
             pipeline.fit(_X, y)
