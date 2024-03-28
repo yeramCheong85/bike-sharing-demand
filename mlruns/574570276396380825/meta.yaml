@@ -1,6 +1,0 @@
-artifact_location: file:///workspaces/bike-sharing-demand/mlruns/574570276396380825
-creation_time: 1711606876119
-experiment_id: '574570276396380825'
-last_update_time: 1711606876119
-lifecycle_stage: active
-name: new_experiment_with_log
