@@ -1,0 +1,15 @@
+[project]
+name = "bike-sharing-demand"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "ZinoStudio", email = "52914646+ZinoStudio931@users.noreply.github.com"},
+]
+dependencies = []
+requires-python = "==3.9.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
