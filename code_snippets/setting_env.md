@@ -51,16 +51,16 @@ source .venv/bin/activate
 ```yaml
 dependencies = [
     "bentoml>=1.2.6",
-    "scikit-learn>=1.3.2",
-    "pandas>=2.1.4",
-    "numpy>=1.26.4",
+    "scikit-learn==1.3.2",
+    "pandas==2.1.4",
+    "numpy==1.26.4",
     "mlflow>=2.11.1",
-    "category-encoders>=2.6.3",
-    "pydantic>=2.6.3",
-    "deepchecks>=0.18.1",
-    "joblib>=1.3.2",
-    "rich>=13.7.1",
-    "seaborn>=0.13.2",
+    "category-encoders==2.6.3",
+    "pydantic==2.6.3",
+    "deepchecks==0.18.1",
+    "joblib==1.3.2",
+    "rich==13.7.1",
+    "seaborn==0.13.2",
 ]
 
 [project.optional-dependencies]
