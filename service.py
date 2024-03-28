@@ -32,5 +32,5 @@ svc = bentoml.Service("bicycle_count_regressor", runners=[model_runner])
 )
 async def predict(input_data: Features) -> npt.NDArray:
     input_df = pd.DataFrame([input_data.dict()])
-    log_pred = await model_runner.predict.async_run(input_df)
-    return log_pred
+    pred = await model_runner.predict.async_run(input_df)
+    return pred
